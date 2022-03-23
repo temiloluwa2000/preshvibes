@@ -20,5 +20,5 @@ next();
 
 myapp.get('/', function(req, res) {
    res.sendFile( __dirname);
-   res.sendFile(path.join(__dirname + '/stage4/index.html'));
+   res.sendFile(path.join(__dirname + '/sport/index.html'));
 });
