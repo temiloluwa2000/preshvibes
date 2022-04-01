@@ -22,5 +22,9 @@ myapp.get('/', function(req, res) {
    res.sendFile( __dirname);
    res.sendFile(path.join(__dirname + '/sport/index.html'));
 });
+myapp.use(express.static(__dirname + '/sport'));
+myapp.use(bodyParser.urlencoded({ extended: true }));
+myapp.use(bodyParser.json());
+
 const portr = process.env.PORT || 3000;
 myapp.listen(portr);
