@@ -23,7 +23,7 @@ myapp.get('/', function(req, res) {
    res.sendFile( __dirname);
    res.sendFile(path.join(__dirname + '/sport/indexx.html'));
 });
-myapp.use(express.static(__dirname + '/sport'));
+myapp.use(express.static(__dirname + 'sport'));
 myapp.use(bodyParser.urlencoded({ extended: true }));
 myapp.use(bodyParser.json());
 
