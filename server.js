@@ -10,17 +10,22 @@ const client = new Client({
 
 client.connect();	
 
-//var myapp = express();
+var myapp = express();
 const path = require('path');
 const router = express.Router();
-var connect = require("connect");
 
-var myapp = connect.createServer().use(connect.static(__dirname + '/sport'));
+myapp.use(function(req, res, next){ 
+req.headers['content-type'] = "application/json"; 
+next();
+});
 
 myapp.get('/', function(req, res) {
    res.sendFile( __dirname);
    res.sendFile(path.join(__dirname + '/sport/indexx.html'));
 });
+myapp.use(express.static(__dirname + '/sport'));
+myapp.use(bodyParser.urlencoded({ extended: true }));
+myapp.use(bodyParser.json());
 
 const portr = process.env.PORT || 3000;
 myapp.listen(portr);
