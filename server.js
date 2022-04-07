@@ -20,7 +20,6 @@ next();
 });
 
 myapp.get('/', function(req, res) {
-   res.sendFile( __dirname);
    res.sendFile(path.join(__dirname + '/sport/indexx.html'));
 });
 myapp.use(express.static(__dirname + '/sport'));
